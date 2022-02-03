@@ -17,6 +17,7 @@ app.post("/", function(req,res){
     const lastName = req.body.lname;
     const email = req.body.email;
 
+    //make data object as per mailchimp api documentation
     const data = {
         members:[
             {
@@ -32,7 +33,10 @@ app.post("/", function(req,res){
 
     const jsonData = JSON.stringify(data);
     const url = "https://us14.api.mailchimp.com/3.0/lists/f6fba9265e";
+
+    //unique listId or audience id get from mailchimp
     const listID = "f6fba9265e";
+    //as per node https method make ready option method parameter for mailchimp post and auth 
     const option = {
         method:"POST",
         auth:"atib_shaikh:708290c4c0cb986caf617857d6564441-us14"
